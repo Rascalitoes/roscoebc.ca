@@ -1,4 +1,35 @@
-.counter {
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+body {
+  background-color: #f5efe3;
+}
+
+.portfolio-card-w {
+  aspect-ratio: 2;
+  width: 56vw;
+}
+
+.portfolio-card-h {
+  aspect-ratio: 0.5;
+  height: 56vw;
+}
+
+.code {
+  font-family: monospace
+}
+
+#bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* .counter {
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 5px;
@@ -181,4 +212,4 @@
     right: 0;
     border-right-color: var(--border);
   }
-}
+} */

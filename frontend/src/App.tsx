@@ -1,15 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+// import heroImg from './assets/hero.png'
+
+import salesTracker1 from './assets/salestracker1.png'
+
+import PortfolioCard from './components/PortfolioCard';
+// import Card from './components/Card';
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
-      <section id="center">
+      {/* <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
@@ -30,9 +36,9 @@ function App() {
         </button>
       </section>
 
-      <div className="ticks"></div>
+      <div className="ticks"></div> */}
 
-      <section id="next-steps">
+      {/* <section id="next-steps">
         <div id="docs">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
@@ -111,7 +117,44 @@ function App() {
             </li>
           </ul>
         </div>
-      </section>
+      </section> */}
+
+        <div id='bento-grid'>
+      <PortfolioCard
+        title="Sales Tracker"
+        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
+        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+        imageURLs={[salesTracker1]}
+        horizontal={true}
+      ></PortfolioCard>
+
+      <PortfolioCard
+        title="Sales Tracker"
+        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
+        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+        imageURLs={[salesTracker1]}
+        horizontal={false}
+      ></PortfolioCard>
+      <PortfolioCard
+        title="Sales Tracker"
+        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
+        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+        imageURLs={[salesTracker1]}
+        horizontal={true}
+      ></PortfolioCard>
+      </div>
 
       <div className="ticks"></div>
       <section id="spacer"></section>
