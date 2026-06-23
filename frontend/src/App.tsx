@@ -126,7 +126,7 @@ function App() {
         This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
         items would go on sale, an email could be sent to different user accounts, which were all set up with their own
         logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
         tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
         imageURLs={[salesTracker1]}
       ></PortfolioCard>
