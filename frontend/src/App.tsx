@@ -128,7 +128,7 @@ function App() {
         logins."
         stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
         tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        imageURLs={[salesTracker1]}
+        images={[{src: salesTracker1, alt: "Alternate text"}]}
       ></PortfolioCard>
       </div>
 

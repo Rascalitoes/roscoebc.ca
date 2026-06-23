@@ -1,5 +1,8 @@
 import React from 'react';
 import { colourMap } from '../constants/colourMap';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import 'swiper/css';
+import ImageSwipe from './ImageSwipe';
 
 interface ChipListProps {
     list: string[];
@@ -10,7 +13,7 @@ interface CardProps {
     stack?: string[];
     tags: string[];
     description: string;
-    imageURLs?: string[];
+    images?: [{src: string, alt: string}];
     className?: string;
 }
 
@@ -20,14 +23,15 @@ const ChipList: React.FC<ChipListProps> = ({ list }) => {
     )
 }
 
-const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, description, imageURLs, className = '' }) => {
-    let images = imageURLs ? imageURLs[0] : "";
+const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, description, images, className = '' }) => {
+    // let images = imageURLs ? imageURLs[0] : "";
 
     return (
         <div className='portfolio-card'>
             <div className='card-foreground bg-white border border-black flex flex-col p-4 space-y-2'>
                 <h2 className='font-mono text-2xl pb-2'>Project Title</h2>
-                <img src={images} className='border'></img>
+                <ImageSwipe slides={images}/>
+                {/* <img src={images} className='border'></img> */}
                 <p className='text-sm m-auto'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
