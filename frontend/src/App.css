@@ -1,6 +1,7 @@
 #spacer {
   height: 88px;
   border-top: 1px solid var(--border);
+
   @media (max-width: 1024px) {
     height: 48px;
   }
@@ -18,6 +19,26 @@ body {
 .portfolio-card-h {
   aspect-ratio: 0.5;
   height: 56vw;
+}
+
+.portfolio-card {
+  aspect-ratio: 8/9;
+  position: relative;
+}
+
+.portfolio-card .card-foreground {
+  width: 98%;
+  height: 98%;
+  position: relative;
+}
+
+.portfolio-card .card-shadow {
+  width: 98%;
+  height: 98%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .code {

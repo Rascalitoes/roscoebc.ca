@@ -119,7 +119,7 @@ function App() {
         </div>
       </section> */}
 
-        <div id='bento-grid'>
+        <div id='bento-grid' className='m-10'>
       <PortfolioCard
         title="Sales Tracker"
         description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
@@ -129,30 +129,6 @@ function App() {
         stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
         tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
         imageURLs={[salesTracker1]}
-        horizontal={true}
-      ></PortfolioCard>
-
-      <PortfolioCard
-        title="Sales Tracker"
-        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
-        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
-        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
-        logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
-        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        imageURLs={[salesTracker1]}
-        horizontal={false}
-      ></PortfolioCard>
-      <PortfolioCard
-        title="Sales Tracker"
-        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
-        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
-        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
-        logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
-        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        imageURLs={[salesTracker1]}
-        horizontal={true}
       ></PortfolioCard>
       </div>
 
