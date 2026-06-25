@@ -4,6 +4,8 @@
 // import heroImg from './assets/hero.png'
 
 import salesTracker1 from './assets/salestracker1.png'
+import screen1 from './assets/screen1.png'
+import screen2 from './assets/screen2.png'
 
 import PortfolioCard from './components/PortfolioCard';
 // import Card from './components/Card';
@@ -128,7 +130,11 @@ function App() {
         logins."
         stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
         tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        images={[{src: salesTracker1, alt: "Alternate text"}]}
+        images={[
+          {src: salesTracker1, alt: "Alternate text"},
+          {src: screen1, alt: "Alternate text"},
+          {src: screen2, alt: "Alternate text"},
+        ]}
       ></PortfolioCard>
       </div>
 
