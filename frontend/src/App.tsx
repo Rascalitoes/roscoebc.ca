@@ -4,6 +4,8 @@
 // import heroImg from './assets/hero.png'
 
 import salesTracker1 from './assets/salestracker1.png'
+import screen1 from './assets/screen1.png'
+import screen2 from './assets/screen2.png'
 
 import PortfolioCard from './components/PortfolioCard';
 // import Card from './components/Card';
@@ -119,40 +121,81 @@ function App() {
         </div>
       </section> */}
 
-        <div id='bento-grid'>
+        <div id='bento-grid' className='m-10'>
       <PortfolioCard
         title="Sales Tracker"
         description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
         This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
         items would go on sale, an email could be sent to different user accounts, which were all set up with their own
         logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
         tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        imageURLs={[salesTracker1]}
-        horizontal={true}
+        images={[
+          {src: salesTracker1, alt: "Alternate text"},
+          {src: screen1, alt: "Alternate text"},
+          {src: screen2, alt: "Alternate text"},
+        ]}
+        colour="beige"
       ></PortfolioCard>
-
-      <PortfolioCard
+            <PortfolioCard
         title="Sales Tracker"
         description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
         This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
         items would go on sale, an email could be sent to different user accounts, which were all set up with their own
         logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
         tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        imageURLs={[salesTracker1]}
-        horizontal={false}
+        images={[
+          {src: salesTracker1, alt: "Alternate text"},
+          {src: screen1, alt: "Alternate text"},
+          {src: screen2, alt: "Alternate text"},
+        ]}
+        colour="teal"
       ></PortfolioCard>
-      <PortfolioCard
+            <PortfolioCard
         title="Sales Tracker"
         description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
         This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
         items would go on sale, an email could be sent to different user accounts, which were all set up with their own
         logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify"]}
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
         tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        imageURLs={[salesTracker1]}
-        horizontal={true}
+        images={[
+          {src: salesTracker1, alt: "Alternate text"},
+          {src: screen1, alt: "Alternate text"},
+          {src: screen2, alt: "Alternate text"},
+        ]}
+        colour="salmon"
+      ></PortfolioCard>
+            <PortfolioCard
+        title="Sales Tracker"
+        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
+        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+        images={[
+          {src: salesTracker1, alt: "Alternate text"},
+          {src: screen1, alt: "Alternate text"},
+          {src: screen2, alt: "Alternate text"},
+        ]}
+        colour="auburn"
+      ></PortfolioCard>
+            <PortfolioCard
+        title="Sales Tracker"
+        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
+        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+        images={[
+          {src: salesTracker1, alt: "Alternate text"},
+          {src: screen1, alt: "Alternate text"},
+          {src: screen2, alt: "Alternate text"},
+        ]}
+        colour="cerulean"
       ></PortfolioCard>
       </div>
 

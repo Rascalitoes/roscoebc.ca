@@ -5,4 +5,5 @@ export const colourMap: Record<string, string> = {
   NodeJS: 'bg-emerald-100 inset-ring-emerald-800/60 text-emerald-900',
   AWS: 'bg-orange-100 inset-ring-orange-800/60 text-orange-900',
   Apify: 'bg-sky-100 inset-ring-sky-800/60 text-sky-900',
+  Auth0: 'bg-neutral-300 inset-ring-neutral-950/60 text-black',
 };

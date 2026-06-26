@@ -1,6 +1,7 @@
 #spacer {
   height: 88px;
   border-top: 1px solid var(--border);
+
   @media (max-width: 1024px) {
     height: 48px;
   }
@@ -20,13 +21,39 @@ body {
   height: 56vw;
 }
 
+.portfolio-card {
+  aspect-ratio: 8/9;
+  position: relative;
+}
+
+.portfolio-card .card-foreground {
+  width: 98%;
+  height: 98%;
+  position: relative;
+}
+
+.portfolio-card .card-shadow {
+  width: 98%;
+  height: 98%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
 .code {
   font-family: monospace
 }
 
 #bento-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 420px));
+  grid-gap: 3em;
+}
+
+.swiper-slide {
+  display: inherit;
 }
 
 /* .counter {

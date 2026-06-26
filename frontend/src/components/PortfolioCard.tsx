@@ -1,5 +1,6 @@
 import React from 'react';
 import { colourMap } from '../constants/colourMap';
+import ImageSwipe from './ImageSwipe';
 
 interface ChipListProps {
     list: string[];
@@ -10,57 +11,31 @@ interface CardProps {
     stack?: string[];
     tags: string[];
     description: string;
-    imageURLs?: string[];
-    horizontal: boolean;
-    className?: string;
+    colour?: string;
+    images?: {src: string, alt: string}[];
 }
 
 const ChipList: React.FC<ChipListProps> = ({ list }) => {
     return list.map((chip) =>
-        <span key={chip} className={`rounded-full px-2 py-1 text-xs font-medium inset-ring ${colourMap[chip]}`}>{chip}</span>
+        <span key={chip} className={`px-2 py-1 text-xs font-sans font-medium inset-ring ${colourMap[chip]}`}>{chip}</span>
     )
 }
 
-const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, description, imageURLs, horizontal, className = '' }) => {
-    let images = imageURLs ? imageURLs[0] : "";
-    // let direction = horizontal ? "w" : "h";
-
+const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, colour="beige", description, images}) => {
     return (
-        <div className={`portfolio-card-${horizontal ? "w" : "h"} bg-stone-50 rounded-2xl shadow-sm text-black m-10 flex-col" ${className}`}>
-            <div className="bg-orange-400 rounded-t-2xl border-b border-black py-2">
-                <h3 className="text-4xl font-bold ml-5">{title}</h3>
-            </div>
-            <div className='content p-5 flex-1'>
-                <div className='tagWrapper mx-2 mt-0 mb-4 space-y-2'>
-                    <div className='stack space-x-1'>
-                        {/* <span className='code font-bold'>Tech Stack:</span> */}
-                        <ChipList list={stack ? stack : []}></ChipList>
-                    </div>
-                    {/* <div className='tags space-x-1'>
-                        <span className='code'>Other Tags:</span>
-                        <ChipList list={tags}></ChipList>
-                    </div> */}
-                </div>
-
-
-                <div className={`gap-6 flex flex-${horizontal ? "row" : "col"}`}>
-                    {/* Image Placeholder */}
-                    <div className="shrink-0">
-                        <img
-                            src={images}
-                            alt="Content"
-                            className={`${horizontal ? "h-64" : "w-full"} object-cover rounded-2xl border border-black`}
-                        />
-                    </div>
-
-                    {/* Description */}
-                    <div className="flex-1 flex flex-col justify-center">
-                        <p className=" text-gray-900 leading-relaxed">
-                            {description}
-                        </p>
-                    </div>
+        <div className='portfolio-card'>
+            <div className={`card-foreground  border border-black flex flex-col p-4 space-y-2  bg-${colour}-500`}>
+                <h2 className='font-mono text-2xl pb-2 font-bold'>{title}</h2>
+                <ImageSwipe slides={images} colour={colour}/>
+                <p className={'text-sm m-auto text-justify '+`text-${colour}-950`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore.</p>
+                <div className='stack space-x-1 self-center mt-auto'>
+                    <ChipList list={stack ? stack : []}></ChipList>
                 </div>
             </div>
+            <div className='card-shadow bg-black'></div>
         </div>
     );
 };
