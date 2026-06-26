@@ -23,7 +23,7 @@ const ChipList: React.FC<ChipListProps> = ({ list }) => {
 const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, description, images}) => {
     return (
         <div className='portfolio-card'>
-            <div className='card-foreground bg-[#E8D5C0] border border-black flex flex-col p-4 space-y-2'>
+            <div className='card-foreground  border border-black flex flex-col p-4 space-y-2  bg-beige-500'>
                 <h2 className='font-mono text-2xl pb-2 font-bold'>{title}</h2>
                 <ImageSwipe slides={images}/>
                 <p className='text-sm m-auto text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

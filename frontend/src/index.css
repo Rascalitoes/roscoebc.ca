@@ -4,6 +4,20 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+@theme{
+  --color-beige-50:  #FDFBF8;
+  --color-beige-100: #FAF6F2;
+  --color-beige-200: #F6EEE5;
+  --color-beige-300: #F1E6D9;
+  --color-beige-400: #EDDECC;
+  --color-beige-500: #E8D5C0;
+  --color-beige-600: #BAAB9A;
+  --color-beige-700: #8B8074;
+  --color-beige-800: #5D554D;
+  --color-beige-900: #2E2B27;
+  --color-beige-950: #171513;
+}
+
 /* :root {
   --text: #6b6375;
   --text-h: #08060d;
