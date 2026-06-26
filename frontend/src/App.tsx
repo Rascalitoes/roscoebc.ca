@@ -135,6 +135,7 @@ function App() {
           {src: screen1, alt: "Alternate text"},
           {src: screen2, alt: "Alternate text"},
         ]}
+        colour="beige"
       ></PortfolioCard>
             <PortfolioCard
         title="Sales Tracker"
@@ -149,6 +150,7 @@ function App() {
           {src: screen1, alt: "Alternate text"},
           {src: screen2, alt: "Alternate text"},
         ]}
+        colour="teal"
       ></PortfolioCard>
             <PortfolioCard
         title="Sales Tracker"
@@ -163,6 +165,7 @@ function App() {
           {src: screen1, alt: "Alternate text"},
           {src: screen2, alt: "Alternate text"},
         ]}
+        colour="salmon"
       ></PortfolioCard>
             <PortfolioCard
         title="Sales Tracker"
@@ -177,6 +180,7 @@ function App() {
           {src: screen1, alt: "Alternate text"},
           {src: screen2, alt: "Alternate text"},
         ]}
+        colour="auburn"
       ></PortfolioCard>
             <PortfolioCard
         title="Sales Tracker"
@@ -191,6 +195,7 @@ function App() {
           {src: screen1, alt: "Alternate text"},
           {src: screen2, alt: "Alternate text"},
         ]}
+        colour="cerulean"
       ></PortfolioCard>
       </div>
 

@@ -16,7 +16,61 @@ body {
   --color-beige-800: #5D554D;
   --color-beige-900: #2E2B27;
   --color-beige-950: #171513;
+
+  --color-teal-50:  #F1F7F8;
+  --color-teal-100: #E3F0F0;
+  --color-teal-200: #C8E1E1;
+  --color-teal-300: #AFD2D3;
+  --color-teal-400: #98C3C4;
+  --color-teal-500: #82B4B5;
+  --color-teal-600: #689091;
+  --color-teal-700: #4E6C6D;
+  --color-teal-800: #344848;
+  --color-teal-900: #1A2424;
+  --color-teal-950: #0D1212;
+
+  --color-salmon-50:  #FEF7F4;
+  --color-salmon-100: #FDEFE9;
+  --color-salmon-200: #FCDFD4;
+  --color-salmon-300: #FACFBE;
+  --color-salmon-400: #F9C0A9;
+  --color-salmon-500: #F8B195;
+  --color-salmon-600: #C68D77;
+  --color-salmon-700: #946A59;
+  --color-salmon-800: #63473B;
+  --color-salmon-900: #31231E;
+  --color-salmon-950: #19120F;
+
+  --color-auburn-50:  #F9EEF1;
+  --color-auburn-100: #F2DDE3;
+  --color-auburn-200: #E6BDC9;
+  --color-auburn-300: #D9A0B0;
+  --color-auburn-400: #CC8499;
+  --color-auburn-500: #C06C84;
+  --color-auburn-600: #995669;
+  --color-auburn-700: #73404F;
+  --color-auburn-800: #4D2B34;
+  --color-auburn-900: #26151A;
+  --color-auburn-950: #130B0D;
+
+  --color-cerulean-50:  #F3F5FF;
+  --color-cerulean-100: #E6EBFF;
+  --color-cerulean-200: #CDD7FF;
+  --color-cerulean-300: #B4C3FF;
+  --color-cerulean-400: #9BAFFF;
+  --color-cerulean-500: #829BFF;
+  --color-cerulean-600: #687CCC;
+  --color-cerulean-700: #4E5D99;
+  --color-cerulean-800: #343E66;
+  --color-cerulean-900: #1A1F33;
+  --color-cerulean-950: #0D101A;
+
 }
+
+
+@source inline("bg-{beige,teal,salmon,auburn,cerulean}-{500,600,800}");
+@source inline("fill-{beige,teal,salmon,auburn,cerulean}-{500,800}");
+@source inline("text-{beige,teal,salmon,auburn,cerulean}-950");
 
 /* :root {
   --text: #6b6375;

@@ -13,11 +13,13 @@ interface ArrowButtonProps {
     onClick?: () => void;
     label?: string;
     direction_right: boolean;
+    colour?: string;
     className?: string;
 }
 
 interface SlideProps {
     slides: { src: string, alt: string }[];
+    colour: string;
 }
 
 // Buttons to move between images for each portfolio items
@@ -27,6 +29,7 @@ const ArrowButton: React.FC<ArrowButtonProps> = (
         onClick,
         label = "Next",
         direction_right = false,
+        colour = "beige",
         className = "",
     }) => {
     return (
@@ -47,12 +50,12 @@ const ArrowButton: React.FC<ArrowButtonProps> = (
                 {/* Top triangle */}
                 <polygon
                     points="0,0 80,160 0,160"
-                    className={direction_right ? "fill-beige-500" : "fill-beige-800"}
+                    className={direction_right ? `fill-${colour}-500` : `fill-${colour}-800`}
                 />
                 {/* Bottom triangle */}
                 <polygon
                     points="0,160 80,160 0,320"
-                    className={direction_right ? "fill-beige-800" : "fill-beige-500"}
+                    className={direction_right ? `fill-${colour}-800` : `fill-${colour}-500`}
                 />
             </svg>
         </button>
@@ -60,15 +63,16 @@ const ArrowButton: React.FC<ArrowButtonProps> = (
 };
 
 // Image slideshow for portfolio items
-export default ({ slides }: SlideProps) => {
+export default ({ slides, colour="beige" }: SlideProps) => {
     const swiperRef = useRef<SwiperType | null>(null);
 
     return (
-        <div className='swipe-wrapper relative bg-beige-600 -mx-4 py-1.5 h-1/2 min-w-0'>
+        <div className={`swipe-wrapper relative bg-${colour}-600 -mx-4 py-1.5 h-1/2 min-w-0`}>
             <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
                 <ArrowButton
                     label="Previous slide"
                     direction_right={false}
+                    colour={colour}
                     onClick={() => swiperRef.current?.slidePrev()}
                 />
             </div>
@@ -95,6 +99,7 @@ export default ({ slides }: SlideProps) => {
                 <ArrowButton
                     label="Next slide"
                     direction_right={true}
+                    colour={colour}
                     onClick={() => { swiperRef.current?.slideNext() }}
                 />
             </div>

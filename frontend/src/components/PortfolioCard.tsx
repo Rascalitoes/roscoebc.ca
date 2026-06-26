@@ -11,6 +11,7 @@ interface CardProps {
     stack?: string[];
     tags: string[];
     description: string;
+    colour?: string;
     images?: {src: string, alt: string}[];
 }
 
@@ -20,13 +21,13 @@ const ChipList: React.FC<ChipListProps> = ({ list }) => {
     )
 }
 
-const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, description, images}) => {
+const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, colour="beige", description, images}) => {
     return (
         <div className='portfolio-card'>
-            <div className='card-foreground  border border-black flex flex-col p-4 space-y-2  bg-beige-500'>
+            <div className={`card-foreground  border border-black flex flex-col p-4 space-y-2  bg-${colour}-500`}>
                 <h2 className='font-mono text-2xl pb-2 font-bold'>{title}</h2>
-                <ImageSwipe slides={images}/>
-                <p className='text-sm m-auto text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                <ImageSwipe slides={images} colour={colour}/>
+                <p className={'text-sm m-auto text-justify '+`text-${colour}-950`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore.</p>
