@@ -8,199 +8,146 @@ import screen1 from './assets/screen1.png'
 import screen2 from './assets/screen2.png'
 
 import PortfolioCard from './components/PortfolioCard';
-// import Card from './components/Card';
+import Cloud from './components/Cloud';
+import { PerspectiveGrid } from './components/PerspectiveGrid';
+
+import React, { useEffect, useRef } from 'react';
 
 import './App.css'
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // 1. Add the class/id when the component mounts
+    document.body.classList.add('gradient-bg');
+    // 2. Clean up function: removes it when the component unmounts
+    return () => {
+      document.body.classList.remove('gradient-bg');
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = (): void => {
+      if (containerRef.current) {
+        // 1. Calculate the scroll value exactly ONCE
+        const scrollAmount = window.scrollY;
+        // 2. Set it as a CSS variable on the parent container
+        containerRef.current.style.setProperty('--scroll-y', `${scrollAmount}px`);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      {/* <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div id='clouds' ref={containerRef}>
+      {/* Top-left clouds */}
+      <Cloud speed={0.5} className="top-12 left-[8%] scale-110" />
+      <Cloud speed={0.5} className="top-50 left-[21%] z-0" />
+      <Cloud speed={0.8} className="top-100 left-[2%] scale-125 z-0" />
 
-      <div className="ticks"></div> */}
+      {/* Top-right clouds */}
+      <Cloud speed={-0.5} className="top-16 right-[15%] scale-125" />
 
-      {/* <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section> */}
+      {/* Middle cloud */}
+      <Cloud speed={-0.1} className="top-90 right-[40%] scale-125" />
 
-        <div id='bento-grid' className='m-10'>
-      <PortfolioCard
-        title="Sales Tracker"
-        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
-        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
-        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
-        logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
-        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        images={[
-          {src: salesTracker1, alt: "Alternate text"},
-          {src: screen1, alt: "Alternate text"},
-          {src: screen2, alt: "Alternate text"},
-        ]}
-        colour="beige"
-      ></PortfolioCard>
-            <PortfolioCard
-        title="Sales Tracker"
-        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
-        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
-        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
-        logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
-        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        images={[
-          {src: salesTracker1, alt: "Alternate text"},
-          {src: screen1, alt: "Alternate text"},
-          {src: screen2, alt: "Alternate text"},
-        ]}
-        colour="teal"
-      ></PortfolioCard>
-            <PortfolioCard
-        title="Sales Tracker"
-        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
-        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
-        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
-        logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
-        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        images={[
-          {src: salesTracker1, alt: "Alternate text"},
-          {src: screen1, alt: "Alternate text"},
-          {src: screen2, alt: "Alternate text"},
-        ]}
-        colour="salmon"
-      ></PortfolioCard>
-            <PortfolioCard
-        title="Sales Tracker"
-        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
-        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
-        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
-        logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
-        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        images={[
-          {src: salesTracker1, alt: "Alternate text"},
-          {src: screen1, alt: "Alternate text"},
-          {src: screen2, alt: "Alternate text"},
-        ]}
-        colour="auburn"
-      ></PortfolioCard>
-            <PortfolioCard
-        title="Sales Tracker"
-        description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
-        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
-        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
-        logins."
-        stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
-        tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
-        images={[
-          {src: salesTracker1, alt: "Alternate text"},
-          {src: screen1, alt: "Alternate text"},
-          {src: screen2, alt: "Alternate text"},
-        ]}
-        colour="cerulean"
-      ></PortfolioCard>
+      {/* Bottom clouds */}
+      <Cloud speed={0.5} className="bottom-24 left-[8%] scale-95 z-0" />
+      <Cloud speed={-0.5} className="bottom-50 right-[9%] scale-125" />
       </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <div id="splash-header" className='flex flex-col h-screen'>
+        <div id="portfolio-sun" className="relative mt-auto z-10 mx-auto w-[24rem] h-48 sm:w-128 sm:h-64 md:w-160 md:h-80 bg-[#EFA085] rounded-t-full flex items-end justify-center border-t border-x border-black/80">
+          <h1 className="text-black font-sans text-9xl sm:text-6xl md:text-8xl font-medium tracking-wide select-none translate-y-3">
+            PORTFOLIO
+          </h1>
+        </div>
+        <hr className='border-black border-8' />
+      </div>
+
+
+
+      <div id='bento-grid' className='px-10 pt-20'>
+        <PerspectiveGrid />
+        <PortfolioCard
+          title="Sales Tracker"
+          description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+          stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
+          tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+          images={[
+            { src: salesTracker1, alt: "Alternate text" },
+            { src: screen1, alt: "Alternate text" },
+            { src: screen2, alt: "Alternate text" },
+          ]}
+          colour="beige"
+        ></PortfolioCard>
+        <PortfolioCard
+          title="Sales Tracker"
+          description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+          stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
+          tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+          images={[
+            { src: salesTracker1, alt: "Alternate text" },
+            { src: screen1, alt: "Alternate text" },
+            { src: screen2, alt: "Alternate text" },
+          ]}
+          colour="teal"
+        ></PortfolioCard>
+        <PortfolioCard
+          title="Sales Tracker"
+          description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+          stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
+          tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+          images={[
+            { src: salesTracker1, alt: "Alternate text" },
+            { src: screen1, alt: "Alternate text" },
+            { src: screen2, alt: "Alternate text" },
+          ]}
+          colour="salmon"
+        ></PortfolioCard>
+        <PortfolioCard
+          title="Sales Tracker"
+          description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+          stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
+          tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+          images={[
+            { src: salesTracker1, alt: "Alternate text" },
+            { src: screen1, alt: "Alternate text" },
+            { src: screen2, alt: "Alternate text" },
+          ]}
+          colour="auburn"
+        ></PortfolioCard>
+        <PortfolioCard
+          title="Sales Tracker"
+          description="What began as a 2-month experiment evolved into a full multi-user web application over 2.5 years.
+        This project reverse-engineered APIs from different grocery stores to create a database of all their prices. When
+        items would go on sale, an email could be sent to different user accounts, which were all set up with their own
+        logins."
+          stack={["NodeJS", "JS", "PugJS", "MongoDB", "AWS", "Apify", "Auth0"]}
+          tags={["Web", "Fullstack", "Frontend", "Backend", "APIs", "Git"]}
+          images={[
+            { src: salesTracker1, alt: "Alternate text" },
+            { src: screen1, alt: "Alternate text" },
+            { src: screen2, alt: "Alternate text" },
+          ]}
+          colour="cerulean"
+        ></PortfolioCard>
+      </div> {/* End of root */}
     </>
   )
 }
