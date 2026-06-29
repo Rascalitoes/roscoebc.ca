@@ -1,12 +1,13 @@
 // import Swiper core and required modules
-import { Navigation, A11y } from 'swiper/modules';
+import { A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { createPortal } from 'react-dom';
 import type { Swiper as SwiperType } from "swiper";
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/navigation';
+// import 'swiper/css/navigation';
 import 'swiper/css/a11y';
 
 interface ArrowButtonProps {
@@ -63,8 +64,9 @@ const ArrowButton: React.FC<ArrowButtonProps> = (
 };
 
 // Image slideshow for portfolio items
-export default ({ slides, colour="beige" }: SlideProps) => {
+export default ({ slides, colour = "beige" }: SlideProps) => {
     const swiperRef = useRef<SwiperType | null>(null);
+    const [activeImage, setActiveImage] = useState(null);
 
     return (
         <div className={`swipe-wrapper relative bg-${colour}-600 -mx-4 py-1.5 h-1/2 min-w-0`}>
@@ -77,12 +79,19 @@ export default ({ slides, colour="beige" }: SlideProps) => {
                 />
             </div>
             <Swiper
-                modules={[Navigation, A11y]}
+                modules={[A11y]}
                 spaceBetween={16}
                 navigation={false}
                 className='w-[83%] h-full'
                 loop={true}
                 loopAddBlankSlides={false}
+                onClick={(swiper, event) => {
+                    // Find if the user clicked an image inside a slide
+                    const clickedImg = event.target.closest('.swiper-slide img');
+                    if (clickedImg) {
+                        setActiveImage(clickedImg.src);
+                    }
+                }}
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
                 {slides.map((slide, index) => (
@@ -103,6 +112,53 @@ export default ({ slides, colour="beige" }: SlideProps) => {
                     onClick={() => { swiperRef.current?.slideNext() }}
                 />
             </div>
+
+            {/* --- Lightbox Modal Overlay --- */}
+            {activeImage && createPortal(
+                <div onClick={() => setActiveImage(null)} style={modalOverlayStyle}>
+                    <span style={closeButtonStyle}>&times;</span>
+                    <img
+                        src={activeImage}
+                        alt="Enlarged view"
+                        onClick={(e) => e.stopPropagation()}
+                        style={modalImageStyle}
+                    />
+                </div>,
+                document.body // This targets the very root of your HTML page
+            )}
         </div>
     );
+};
+
+const modalOverlayStyle = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: 'rgba(0, 0, 0, 0.85)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 9999, // Ensure it sits above absolutely everything
+    cursor: 'zoom-out'
+};
+
+const modalImageStyle = {
+    maxWidth: '90%',
+    maxHeight: '90%',
+    objectFit: 'contain',
+    borderRadius: '4px',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+    cursor: 'default'
+};
+
+const closeButtonStyle = {
+    position: 'absolute',
+    top: '20px',
+    right: '30px',
+    color: '#fff',
+    fontSize: '40px',
+    fontWeight: 'bold',
+    cursor: 'pointer'
 };
