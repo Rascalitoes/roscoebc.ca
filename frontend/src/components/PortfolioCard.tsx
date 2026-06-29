@@ -27,10 +27,7 @@ const PortfolioCard: React.FC<CardProps> = ({ title, stack, tags, colour="beige"
             <div className={`card-foreground  border border-black flex flex-col p-4 space-y-2  bg-${colour}-500`}>
                 <h2 className='font-mono text-2xl pb-2 font-bold'>{title}</h2>
                 <ImageSwipe slides={images} colour={colour}/>
-                <p className={'text-sm m-auto text-justify '+`text-${colour}-950`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore.</p>
+                <p className={'text-sm m-auto text-justify '+`text-${colour}-950`}>{description}</p>
                 <div className='stack space-x-1 self-center mt-auto'>
                     <ChipList list={stack ? stack : []}></ChipList>
                 </div>

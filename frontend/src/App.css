@@ -7,8 +7,40 @@
   }
 }
 
+.gradient-bg {
+  background: linear-gradient(#41888E, #FB8C7A, black);
+}
+
+html:has(.gradient-bg){
+  background-color: black;
+}
+
 body {
   background-color: #f5efe3;
+}
+
+#portfolio-sun{
+  height: 30vw;
+  width: 60vw;
+  background: linear-gradient(#FCB490, #FB8C7A);
+  z-index: 0;
+
+  @media (width < 40rem) {
+    width: 90vw;
+    height: 90vw;
+    bottom: -30vw;
+  }
+}
+
+#portfolio-sun h1{
+  font-size: 10vw;
+  line-height: .75em;
+
+  @media (width < 40rem) {
+    position: relative;
+    bottom: 45vw;
+    font-size: 15vw;
+  }
 }
 
 .portfolio-card-w {
@@ -22,8 +54,11 @@ body {
 }
 
 .portfolio-card {
-  aspect-ratio: 8/9;
+  aspect-ratio: 4/5;
   position: relative;
+  min-width: 380px;
+  max-width: 420px;
+  justify-self: center;
 }
 
 .portfolio-card .card-foreground {
@@ -49,19 +84,11 @@ body {
 #bento-grid {
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 420px));
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   grid-gap: 3em;
   position: relative;
 }
 
 .swiper-slide {
   display: inherit;
-}
-
-.gradient-bg {
-  background: linear-gradient(#41888E, #FB8C7A);
-}
-
-html:has(.gradient-bg){
-  background-color: black;
 }

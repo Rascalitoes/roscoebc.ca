@@ -59,13 +59,13 @@ function App() {
       <Cloud speed={-0.5} className="bottom-50 right-[9%] scale-125" />
       </div>
 
-      <div id="splash-header" className='flex flex-col h-screen'>
-        <div id="portfolio-sun" className="relative mt-auto z-10 mx-auto w-[24rem] h-48 sm:w-128 sm:h-64 md:w-160 md:h-80 bg-[#EFA085] rounded-t-full flex items-end justify-center border-t border-x border-black/80">
-          <h1 className="text-black font-sans text-9xl sm:text-6xl md:text-8xl font-medium tracking-wide select-none translate-y-3">
+      <div id="splash-header" className='flex flex-col h-screen overflow-clip'>
+        <div id="portfolio-sun" className="relative mt-auto z-10 mx-auto sm:rounded-t-full sm:rounded-b-none rounded-full flex items-end justify-center border-t border-x border-black/80">
+          <h1 className="text-black font-sans font-medium tracking-wide select-none">
             PORTFOLIO
           </h1>
         </div>
-        <hr className='border-black border-8' />
+        <hr className='border-black border-8 z-2' />
       </div>
 
 
